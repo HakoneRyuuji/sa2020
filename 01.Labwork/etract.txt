@@ -1,0 +1,6 @@
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=a0e644c2-e563-470e-8f44-155a25f51bdb /               ext4    errors=remount-ro 0       1
+/swapfile                                 none            swap    sw              0       0

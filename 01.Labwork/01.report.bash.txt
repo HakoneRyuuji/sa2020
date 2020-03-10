@@ -1,0 +1,73 @@
+1. List everyone logged in and save the list in the file "users" in Home directory:
+Using command: 
+
+w>~/users
+
+2. List all process running and add the list to the end of "users" file:
+Using command:
+
+ps -a>>~/users
+
+3. List everyone is logged, sort them by the 'username'
+Using command:
+
+w|sort
+Output:  
+18:21:31 up 26 min,  1 user,  load average: 0,10, 0,10, 0,09
+quyen    tty7     :0               17:55   25:56   8.83s  0.34s cinnamon-session --session cinnamon
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+
+4. The count number of session each logged in user, sorted by this number in descending order.
+Using command:
+
+w|sort -r
+Output:  
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+quyen    tty7     :0               17:55   26:10   8.88s  0.34s cinnamon-session --session cinnamon
+ 18:21:45 up 26 min,  1 user,  load average: 0,08, 0,09, 0,09
+
+
+
+5. Show content of first and last 3 lines of the file "/etc/fstab"
+Using command:
+
+head -1 /etc/fstab && tail -3 /etc/fstab
+
+('head' and 'tail' is the position of lines, and '-1' and '-3' is the number of lines in the file /etc/fstab)
+6. Retrieve the line number 5 -> 10 from the file "/etc/fstab" and write these lines into "extract.txt":
+Using command:
+
+sed -n '5, 10p' /etc/fstab>>etract.txt
+
+7. List all the files in current directory, recursively, to which user has full permissions:
+Using command:
+
+ls -laR ./ | grep rwx
+Output:
+drwxr-xr-x 15 quyen quyen  4096 Mar 10 19:21 .
+drwxr-xr-x  3 root  root   4096 Mar 10 17:51 ..
+drwx------  6 quyen quyen  4096 Mar 10 17:56 .cache
+drwxrwxr-x  3 quyen quyen  4096 Mar 10 17:55 .cinnamon
+drwxr-xr-x 15 quyen quyen  4096 Mar 10 18:12 .config
+drwxr-xr-x  2 quyen quyen  4096 Mar 10 18:14 Desktop
+drwxr-xr-x  2 quyen quyen  4096 Mar 10 17:55 Documents
+...
+drwxr-xr-x 15 quyen quyen 4096 Mar 10 19:21 ..
+
+
+8. Compare two file and show the "%" of similarities between them:
+Using command:
+
+wdiff -s users 01.report.bash.txt (100% wrong :)) fix later)
+
+
+
+
+
+
+
+
+
+
+
+
