@@ -60,6 +60,18 @@ Using command:
 
 wdiff -s users 01.report.bash.txt (100% wrong :)) fix later)
 
+Using:
+#!/bin/bash
+
+diffLines=`diff $1 $2 | egrep "^(>|<)" | wc -l`
+aLines=`wc -l < $1`
+bLines=`wc -l < $2`
+diffPer=`echo "$diffLines * 100 * 5 / ($aLines + $bLines)" | bc`
+echo $diffPer
+similarity=`echo "100-$diffPer" | bc`
+
+echo $similarity
+
 
 
 
