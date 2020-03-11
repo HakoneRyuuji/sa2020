@@ -29,12 +29,12 @@ Turnaround time T = (5+7+4.5+4.2)/4 = 5.175ms
 ***********************		("-" = 1ms)
 |P1:-----             |
 |P2:     ---          |
-|P3:        --        |
-|P4:          -       |
+|P3:         --       |
+|P4:        -         |
 ***********************
 
-Waiting time W = (0+4+2.5+3.2)/4 = 2.425ms
-Turnaround time T = (5+7+4.5+4.2)/4 = 5.175ms
+Waiting time W = (0+4+3.5+1.2)/4 = 2.175ms
+Turnaround time T = (5+7+5.5+2.2)/4 = 4.925ms
 
 3) SRTF: (Shortest-Remaining-Time-First)
 ***********************		("-" = 1ms)
