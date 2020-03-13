@@ -1,11 +1,40 @@
 #include<stdio.h>
+
+#include<stdlib.h>
+
 #include<unistd.h>
+
 #include<string.h>
+
+#include<stdbool.h>
+
 #include<sys/wait.h>
+
+void handler(int signal_num) {
+  printf("Signal %d => ", signal_num);
+  switch (signal_num) {
+  case SIGTSTP:
+    printf("pause\n");
+    break;
+  case SIGINT:
+  case SIGTERM:
+    printf("Terminated\n");
+    exit(0);
+    break;
+  }
+}
 
 int main(int argc, char const *argv[]) {
 	char input[100];
 	char *args[10];
+    pid_t pid;
+    char cmd[99];
+  // ctrl z
+    signal(SIGTSTP, handler);
+  // ctrl c or killed
+    signal(SIGINT, handler);
+    signal(SIGTERM, handler);
+
 	while (1) {
 		// ask for command
 		printf("Enter your command:");
@@ -56,3 +85,4 @@ int main(int argc, char const *argv[]) {
 	printf("Terminating.\n");
 	return 0;
 }
+
